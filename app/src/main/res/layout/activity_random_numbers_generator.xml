@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="linas.lotteryassistant.Activities.GeneratorActivities.RandomNumbersGeneratorActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/InfoButton"
+        android:src="@drawable/lotto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info"
+        android:id="@+id/InfoButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:id="@+id/RandomNumbersGeneratorRadioGroup"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Combination"
+            android:id="@+id/RandomSingleCombinationRadioButton"
+            android:checked="true"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple Combinations"
+            android:id="@+id/RandomMultipleCombinationRadioButton"
+            android:checked="false"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate"
+        android:id="@+id/GenerateRandomButton"
+        android:layout_below="@+id/RandomNumbersGeneratorRadioGroup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView10"
+        android:layout_alignEnd="@+id/imageView10"
+        android:onClick="GenerateButton_Click"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;-"
+        android:id="@+id/RandomMultipleCombinationsDecreaseButton"
+        android:layout_alignBottom="@+id/RandomMultipleCombinationsCountEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="RandomMultipleCombinationsDecreaseButton_Click"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/RandomMultipleCombinationsCountEditText"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_toLeftOf="@+id/RandomMultipleCombinationsIncreaseButton"
+        android:layout_toEndOf="@+id/RandomMultipleCombinationsDecreaseButton"
+        android:layout_toRightOf="@+id/RandomMultipleCombinationsDecreaseButton"
+        android:text="5"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="->"
+        android:id="@+id/RandomMultipleCombinationsIncreaseButton"
+        android:layout_alignBottom="@+id/RandomMultipleCombinationsCountEditText"
+        android:layout_alignRight="@+id/imageView10"
+        android:layout_alignEnd="@+id/imageView10"
+        android:onClick="RandomMultipleCombinationsIncreaseButton_Click"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Specify the amount of combinations you want to be generated:"
+        android:id="@+id/RandomMultipleCombinationsText"
+        android:layout_above="@+id/RandomMultipleCombinationsCountEditText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+</RelativeLayout>

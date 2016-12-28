@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Activities.AnalyzerActivities._AnalyzerActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/lotto"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lucky Numbers Viewer"
+        android:id="@+id/LuckyNumbersButton"
+        android:onClick="LuckyNumbersViewer_Click"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Even/Odd Numbers Distribution"
+        android:id="@+id/EvenOddNumbers"
+        android:layout_alignParentStart="true"
+        android:onClick="EvenOddNumbers_Click"
+        android:layout_below="@+id/HighLowNumbersButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High/Low Numbers Distribution"
+        android:id="@+id/HighLowNumbersButton"
+        android:layout_alignParentStart="true"
+        android:onClick="HighLowNumbers_Click"
+        android:layout_below="@+id/SumDistributionButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sum Distribution"
+        android:id="@+id/SumDistributionButton"
+        android:onClick="SumDistribution_Click"
+        android:layout_below="@+id/MostPopularNumbers"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MOST POPULAR NUMBERS"
+        android:id="@+id/MostPopularNumbers"
+        android:layout_below="@+id/LuckyNumbersButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:onClick="MostPopularNumbers_Click"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sitting Out Numbers"
+        android:id="@+id/SittingOutNumbersButton"
+        android:layout_below="@+id/EvenOddNumbers"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2"
+        android:onClick="SittingOutNumbers_Click"/>
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Eurojackpot</string>
+    <string name="analyzer">Eurojackpot - Analyzer</string>
+    <string name="lucky_numbers_viewer">Lucky Numbers</string>
+    <string name="generator">Eurojackpot - Generator</string>
+    <string name="even_odd_numbers">Even/Odd Numbers</string>
+    <string name="high_low_numbers">High/Low Numbers</string>
+    <string name="sum_distribution">Sum Distribution</string>
+    <string name="most_popular_numbers">Most Popular Numbers</string>
+    <string name="sitting_out_numbers">Sitting Out Numbers</string>
+    <string name="random_numbers_generator">Random Numbers Generator</string>
+    <string name="advanced_numbers_generator">Advanced Numbers Generator</string>
+    <string name="advanced_numbers_generator_settings">Settings</string>
+    <string name="advanced_numbers_generator_number_picker">Lottery Numbers Picker</string>
+</resources>

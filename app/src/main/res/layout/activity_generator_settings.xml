@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Activities.GeneratorActivities.GeneratorSettings.AdvancedGeneratorSettingsActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restore Defaults"
+        android:id="@+id/RestoreGeneratorDefaultsButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView12"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/RestoreGeneratorDefaultsButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/lotto"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@id/RestoreGeneratorDefaultsButton">
+
+        //linear layout - scroll view viduje reikalingas tam, kad galima butu scrollinti!!!
+        //Even/odd ratios
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use the most popular even-odd number ratios"
+                android:id="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                android:checked="false">
+            </CheckBox>
+
+            //tam, kad mygtukai butu salia vienam lygy reikia horizontal layouto, todel vidiame vertical layoute apsibreziam horizontal
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customize"
+                    android:id="@+id/MainNumbersMostPopularEvenOddRatiosCustomizeButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="MostPopularEvenOddRatiosCustomizeButton_Click">
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:id="@+id/MainNumbersMostPopularRatiosInfoButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="MostPopularEvenOddRatiosInfoButton_Click">
+                </Button>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray">
+            </View>
+
+            //High/low ratios
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use the most popular high-low number ratios"
+                android:id="@+id/MainNumbersMostPopularHighLowRatiosCheckbox"
+                android:checked="false"
+                android:layout_marginTop="20dp">
+            </CheckBox>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customize"
+                    android:id="@+id/MainNumbersMostPopularHighLowRatiosCustomizeButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="MostPopularHighLowRatiosCustomizeButton_Click">
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:id="@+id/MainNumbersMostPopularHighLowRatiosInfoButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="MostPopularHighLowRatiosInfoButton_Click">
+                </Button>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray">
+            </View>
+
+            //Main numbers sum range
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use the most popular main lucky numbers sum range"
+                android:id="@+id/MainNumbersSumRangeCheckbox"
+                android:checked="false"
+                android:layout_marginTop="20dp">
+            </CheckBox>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customize"
+                    android:id="@+id/MainNumbersSumRangeCustomizeButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="MainNumbersSumRangeCustomizeButton_Click">
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:id="@+id/MainNumbersSumRangeInfoButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="MainNumbersSumRangeInfoButton_Click">
+                </Button>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray">
+            </View>
+
+            //Additional numbers sum range
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use the most popular additional lucky numbers sum range"
+                android:id="@+id/AdditionalNumbersSumRangeCheckbox"
+                android:checked="false"
+                android:layout_marginTop="20dp">
+            </CheckBox>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customize"
+                    android:id="@+id/AdditionalNumbersSumRangeCustomizeButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="AdditionalNumbersSumRangeCustomizeButton_Click">
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:id="@+id/AdditionalNumbersSumRangeInfoButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="AdditionalNumbersSumRangeInfoButton_Click">
+                </Button>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/AdditionalNumbersSumRangeSeparator"
+                android:background="@android:color/darker_gray">
+            </View>
+
+            //Number picker
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use lottery numbers picker"
+                android:id="@+id/NumberPickerCheckbox"
+                android:checked="false"
+                android:layout_marginTop="20dp">
+            </CheckBox>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Customize"
+                    android:id="@+id/NumberPickerButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="NumberPickerButton_Click">
+                </Button>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:id="@+id/NumberPickerInfoButton"
+                    android:layout_below="@+id/MainNumbersMostPopularEvenOddRatiosCheckbox"
+                    android:onClick="LotteryNumbersPickerInfoButton_Click">
+                </Button>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray">
+            </View>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

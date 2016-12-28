@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="linas.lotteryassistant">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Activities.ApplicationEntryActivity.ApplicationEntryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities._AnalyzerActivity"
+            android:label="@string/analyzer"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="_AnalyzerActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.GeneratorActivities._GeneratorActivity"
+            android:label="@string/generator"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="_GeneratorActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities.LuckyNumbersViewerActivity"
+            android:label="@string/lucky_numbers_viewer"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="LuckyNumbersViewerActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities.EvenOddNumbersActivity"
+            android:label="@string/even_odd_numbers"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="EvenOddNumbersActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities.HighLowNumbersActivity"
+            android:label="@string/high_low_numbers">
+            <intent-filter>
+                <action android:name="HighLowNumbersActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities.SumDistributionActivity"
+            android:label="@string/sum_distribution"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="SumDistributionActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities.MostPopularNumbersActivity"
+            android:label="@string/most_popular_numbers"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="MostPopularNumbersActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.AnalyzerActivities.SittingOutNumbersActivity"
+            android:label="@string/sitting_out_numbers"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="SittingOutNumbersActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.GeneratorActivities.RandomNumbersGeneratorActivity"
+            android:label="@string/random_numbers_generator"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="RandomNumbersGeneratorActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.GeneratorActivities.AdvancedNumbersGeneratorActivity"
+            android:label="@string/advanced_numbers_generator"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="AdvancedNumbersGeneratorActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.GeneratorActivities.GeneratorSettings.AdvancedGeneratorSettingsActivity"
+            android:label="@string/advanced_numbers_generator_settings"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="AdvancedNumbersGeneratorSettingsActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.GeneratorActivities.GeneratorSettings.AdvancedGeneratorNumberPickerActivity"
+            android:label="@string/advanced_numbers_generator_number_picker"
+            android:theme="@style/AppTheme">
+
+            <intent-filter>
+                <action android:name="AdvancedNumbersGeneratorNumberPickerActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

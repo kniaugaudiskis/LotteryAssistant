@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="linas.lotteryassistant.Activities.GeneratorActivities.AdvancedNumbersGeneratorActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info"
+        android:id="@+id/InfoButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView11"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/InfoButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/lotto"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="vertical"
+        android:id="@+id/AdvancedNumbersGeneratorRadioGroup"
+        android:layout_alignTop="@+id/imageView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Single Combination"
+            android:id="@+id/AdvancedSingleCombinationRadioButton"
+            android:checked="true"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Multiple Combinations"
+            android:id="@+id/AdvancedMultipleCombinationsRadioButton"
+            android:checked="false"/>
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate"
+        android:id="@+id/GenerateAdvancedButton"
+        android:layout_below="@+id/AdvancedNumbersGeneratorRadioGroup"
+        android:layout_alignRight="@+id/imageView11"
+        android:layout_alignEnd="@+id/imageView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="GenerateButton_Click"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Specify the amount of combinations you want to have generated:"
+        android:id="@+id/AdvancedMultipleCombinationsText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/GenerateAdvancedButton"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;-"
+        android:id="@+id/AdvancedMultipleCombinationsDecreaseButton"
+        android:onClick="AdvancedMultipleCombinationsDecreaseButton_Click"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:nestedScrollingEnabled="false"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/AdvancedMultipleCombinationsCountEditText"
+        android:gravity="center"
+        android:text="5"
+        android:layout_alignBottom="@+id/AdvancedMultipleCombinationsDecreaseButton"
+        android:layout_toRightOf="@+id/AdvancedMultipleCombinationsDecreaseButton"
+        android:layout_toLeftOf="@+id/AdvancedMultipleCombinationsIncreaseButton"
+        android:layout_toStartOf="@+id/AdvancedMultipleCombinationsIncreaseButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="->"
+        android:id="@+id/AdvancedMultipleCombinationsIncreaseButton"
+        android:onClick="AdvancedMultipleCombinationsIncreaseButton_Click"
+        android:layout_alignBottom="@+id/AdvancedMultipleCombinationsCountEditText"
+        android:layout_alignRight="@+id/imageView11"
+        android:layout_alignEnd="@+id/imageView11"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generator Settings"
+        android:id="@+id/GeneratorSettingsButton"
+        android:layout_below="@+id/AdvancedMultipleCombinationsIncreaseButton"
+        android:layout_alignRight="@+id/imageView11"
+        android:layout_alignEnd="@+id/imageView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="AdvancedGeneratorSettingsButton_Click"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Current Settings"
+        android:id="@+id/ViewAdvancedCurrentSettingsButton"
+        android:layout_alignRight="@+id/imageView11"
+        android:layout_alignEnd="@+id/imageView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/GeneratorSettingsButton"
+        android:onClick="AdvancedGeneratorViewSettingsButton_Click"/>
+
+</RelativeLayout>
