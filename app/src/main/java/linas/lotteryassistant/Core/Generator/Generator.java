@@ -93,7 +93,7 @@ public class Generator
                     return null;
                 }
             }
-            if (AppConfig.gameName.equals("EuroJackpot"))
+            else if (AppConfig.gameName.equals("EuroJackpot"))
             {
                 if (mainNumbersGeneratedCombination != null)
                 {
