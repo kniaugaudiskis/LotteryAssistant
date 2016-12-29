@@ -179,23 +179,23 @@ public class AdvancedGeneratorSettingsActivity extends AppCompatActivity
 
         if (AppConfig.gameName.equals("VikingLotto"))
         {
-            String[] items = { "6 even - 0 odd",
-                               "5 even - 1 odd",
-                               "4 even - 2 odd",
-                               "3 even - 3 odd",
-                               "2 even - 4 odd",
+            String[] items = { "0 even - 6 odd",
                                "1 even - 5 odd",
-                               "0 even - 6 odd" };
+                               "2 even - 4 odd",
+                               "3 even - 3 odd",
+                               "4 even - 2 odd",
+                               "5 even - 1 odd",
+                               "6 even - 0 odd" };
             selectionItems = items;
         }
         else if (AppConfig.gameName.equals("EuroJackpot"))
         {
-            String[] items = { "5 even - 0 odd",
-                               "4 even - 1 odd",
-                               "3 even - 2 odd",
-                               "2 even - 3 odd",
+            String[] items = { "0 even - 5 odd",
                                "1 even - 4 odd",
-                               "0 even - 5 odd" };
+                               "2 even - 3 odd",
+                               "3 even - 2 odd",
+                               "4 even - 1 odd",
+                               "5 even - 0 odd" };
             selectionItems = items;
         }
 
@@ -243,23 +243,23 @@ public class AdvancedGeneratorSettingsActivity extends AppCompatActivity
 
         if (AppConfig.gameName.equals("VikingLotto"))
         {
-            String[] items = { "6 high - 0 low",
-                               "5 high - 1 low",
-                               "4 high - 2 low",
-                               "3 high - 3 low",
-                               "2 high - 4 low",
+            String[] items = { "0 high - 6 low",
                                "1 high - 5 low",
-                               "0 high - 6 low" };
+                               "2 high - 4 low",
+                               "3 high - 3 low",
+                               "4 high - 2 low",
+                               "5 high - 1 low",
+                               "6 high - 0 low" };
             selectionItems = items;
         }
         else if (AppConfig.gameName.equals("EuroJackpot"))
         {
-            String[] items = { "5 high - 0 low",
-                               "4 high - 1 low",
-                               "3 high - 2 low",
-                               "2 high - 3 low",
+            String[] items = { "0 high - 5 low",
                                "1 high - 4 low",
-                               "0 high - 5 low" };
+                               "2 high - 3 low",
+                               "3 high - 2 low",
+                               "4 high - 1 low",
+                               "5 high - 0 low" };
             selectionItems = items;
         }
 

@@ -45,7 +45,7 @@ public class AppConfig
     public static int defaultSittingOutNumbersProgress = 2;
     public static int maxSittingOutNumbersProgress = 15;
     public static int defaultGeneratorMostPopularValues = 2; //How many even/odd, high/low, sub distribution most popular values will be taken.
-    public static int failedCombinationGenerationToleranceCount = 100;
+    public static int failedCombinationGenerationToleranceCount = 10;
 
     //Game-based settings (not shared)
     public static int maxMainNumbersSum;

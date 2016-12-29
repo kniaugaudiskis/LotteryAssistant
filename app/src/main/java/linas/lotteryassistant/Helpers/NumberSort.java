@@ -15,55 +15,55 @@ public class NumberSort
         int tempIndex2 = 1;
         int nonChangeCounter = 0;
 
-        while (true)
+        if (integerList.size() > 1)
         {
-            if (sortType.equals("Asc"))
+            while (true)
             {
-                if (integerList.get(tempIndex1) > integerList.get(tempIndex2))
+                if (sortType.equals("Asc"))
                 {
-                    int temp1LotteryNumber = integerList.get(tempIndex1);
-                    int temp2LotteryNumber = integerList.get(tempIndex2);
+                    if (integerList.get(tempIndex1) > integerList.get(tempIndex2))
+                    {
+                        int temp1LotteryNumber = integerList.get(tempIndex1);
+                        int temp2LotteryNumber = integerList.get(tempIndex2);
 
-                    integerList.set(tempIndex1, temp2LotteryNumber);
-                    integerList.set(tempIndex2, temp1LotteryNumber);
+                        integerList.set(tempIndex1, temp2LotteryNumber);
+                        integerList.set(tempIndex2, temp1LotteryNumber);
 
-                    nonChangeCounter = 0;
-                }
-                else
+                        nonChangeCounter = 0;
+                    } else
+                    {
+                        nonChangeCounter++;
+                    }
+                } else if (sortType.equals("Desc"))
                 {
-                    nonChangeCounter++;
+                    if (integerList.get(tempIndex1) < integerList.get(tempIndex2))
+                    {
+                        int temp1LotteryNumber = integerList.get(tempIndex1);
+                        int temp2LotteryNumber = integerList.get(tempIndex2);
+
+                        integerList.set(tempIndex1, temp2LotteryNumber);
+                        integerList.set(tempIndex2, temp1LotteryNumber);
+
+                        nonChangeCounter = 0;
+                    } else
+                    {
+                        nonChangeCounter++;
+                    }
                 }
-            }
-            else if (sortType.equals("Desc"))
-            {
-                if (integerList.get(tempIndex1) < integerList.get(tempIndex2))
+
+                if (nonChangeCounter == integerList.size())
                 {
-                    int temp1LotteryNumber = integerList.get(tempIndex1);
-                    int temp2LotteryNumber = integerList.get(tempIndex2);
-
-                    integerList.set(tempIndex1, temp2LotteryNumber);
-                    integerList.set(tempIndex2, temp1LotteryNumber);
-
-                    nonChangeCounter = 0;
+                    break;
                 }
-                else
+
+                tempIndex1++;
+                tempIndex2++;
+
+                if (tempIndex2 == integerList.size())
                 {
-                    nonChangeCounter++;
+                    tempIndex1 = 0;
+                    tempIndex2 = 1;
                 }
-            }
-
-            if (nonChangeCounter == integerList.size())
-            {
-                break;
-            }
-
-            tempIndex1++;
-            tempIndex2++;
-
-            if (tempIndex2 == integerList.size())
-            {
-                tempIndex1 = 0;
-                tempIndex2 = 1;
             }
         }
 

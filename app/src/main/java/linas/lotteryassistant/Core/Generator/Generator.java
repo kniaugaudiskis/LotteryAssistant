@@ -13,8 +13,7 @@ import linas.lotteryassistant.Helpers.NumberSort;
 
 public class Generator
 {
-    protected List<GeneratedCombination> generatedCombinationsList = new ArrayList<>();
-
+    private List<GeneratedCombination> generatedCombinationsList = new ArrayList<>();
     private List<Integer> mainNumbersBackup = new ArrayList<>();
     private List<Integer> additionalNumbersBackup = new ArrayList<>();
 
@@ -74,80 +73,121 @@ public class Generator
     private List<GeneratedCombination> GenerateAndGetCombinationsList(int combinationsAmountToGenerate, String generatorType)
     {
         generatedCombinationsList.clear();
-
         BackupNumbers(generatorType);
-
-        Random rand = new Random();
+        Random random = new Random();
 
         for (int i = 0; i < combinationsAmountToGenerate; i++)
         {
-            int failedGeneratorAttempts = 0;
-
             GeneratedCombination generatedCombination = new GeneratedCombination();
+            List<Integer> mainNumbersGeneratedCombination = GenerateMainNumbers(generatorType, random);
 
-            //Main numbers
-            List<Integer> mainNumbersGeneratedCombination = new ArrayList<>();
+            if (AppConfig.gameName.equals("VikingLotto"))
+            {
+                if (mainNumbersGeneratedCombination != null)
+                {
+                    generatedCombination.AddMainNumberCombination(NumberSort.SortIntegerList(mainNumbersGeneratedCombination, "Asc"));
+                    generatedCombinationsList.add(generatedCombination);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            if (AppConfig.gameName.equals("EuroJackpot"))
+            {
+                if (mainNumbersGeneratedCombination != null)
+                {
+                    List<Integer> additionalNumbersGeneratedCombination = GenerateAdditionalNumbers(generatorType, random);
+
+                    if (additionalNumbersGeneratedCombination != null)
+                    {
+                        generatedCombination.AddMainNumberCombination(NumberSort.SortIntegerList(mainNumbersGeneratedCombination, "Asc"));
+                        generatedCombination.AddAdditionalNumberCombination(NumberSort.SortIntegerList(additionalNumbersGeneratedCombination, "Asc"));
+                        generatedCombinationsList.add(generatedCombination);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        return generatedCombinationsList;
+    }
+
+    private List<Integer> GenerateMainNumbers(String generatorType, Random random)
+    {
+        for (int i = 0; i < AppConfig.failedCombinationGenerationToleranceCount; i++)
+        {
             int maxIndexMainNumbers = AppConfig.maxMainNumber - 1;
+            List<Integer> mainNumbersGeneratedCombination = new ArrayList<>();
 
             for (int j = 0; j < AppConfig.mainNumbersCombinationLength; j++)
             {
-                int randomIndex = 0 + rand.nextInt((maxIndexMainNumbers - 0) + 1); //minimum + rand.nextInt((maximum - minimum) + 1);
+                int randomIndex = 0 + random.nextInt((maxIndexMainNumbers - 0) + 1); //minimum + rand.nextInt((maximum - minimum) + 1);
+
                 int lotteryNumber = GetLotteryNumberByIndex(randomIndex, maxIndexMainNumbers, "MainNumbers", generatorType);
 
                 mainNumbersGeneratedCombination.add(lotteryNumber);
                 maxIndexMainNumbers--;
             }
 
-            mainNumbersGeneratedCombination = NumberSort.SortIntegerList(mainNumbersGeneratedCombination, "Asc");
-            generatedCombination.AddMainNumberCombination(mainNumbersGeneratedCombination);
-
-            //Additional numbers
-            if (AppConfig.gameName.equals("EuroJackpot"))
+            if (generatorType.equals("RandomGenerator"))
             {
-                List<Integer> additionalNumbersGeneratedCombination = new ArrayList<>();
-                int maxIndexAdditionalNumbers = AppConfig.maxAdditionalNumber - 1;
-
-                for (int j = 0; j < AppConfig.additionalNumbersCombinationLength; j++)
-                {
-                    int randomIndex = 0 + rand.nextInt((maxIndexAdditionalNumbers - 0) + 1); //minimum + rand.nextInt((maximum - minimum) + 1);
-                    int lotteryNumber = GetLotteryNumberByIndex(randomIndex, maxIndexAdditionalNumbers, "AdditionalNumbers", generatorType);
-
-                    additionalNumbersGeneratedCombination.add(lotteryNumber);
-                    maxIndexAdditionalNumbers--;
-                }
-
-                additionalNumbersGeneratedCombination = NumberSort.SortIntegerList(additionalNumbersGeneratedCombination, "Asc");
-                generatedCombination.AddAdditionalNumberCombination(additionalNumbersGeneratedCombination);
+                return mainNumbersGeneratedCombination;
             }
-
-            //Validation
-            if (generatorType.equals("AdvancedGenerator"))
+            else if (generatorType.equals("AdvancedGenerator"))
             {
-                if (GeneratorValidator.IsGeneratedCombinationValid(generatedCombination))
+                if (GeneratorValidator.IsGeneratedCombinationValid(mainNumbersGeneratedCombination, "MainNumbers"))
                 {
-                    generatedCombinationsList.add(generatedCombination);
+                    return mainNumbersGeneratedCombination;
                 }
-                else
-                {
-                    failedGeneratorAttempts++;
-
-                    if (failedGeneratorAttempts == AppConfig.failedCombinationGenerationToleranceCount)
-                    {
-                        return generatedCombinationsList;
-                    }
-
-                    combinationsAmountToGenerate--;
-                }
-            }
-            else if (generatorType.equals("RandomGenerator"))
-            {
-                generatedCombinationsList.add(generatedCombination);
             }
 
             RestoreNumbers(generatorType);
         }
 
-        return generatedCombinationsList;
+        return null;
+    }
+
+    private List<Integer> GenerateAdditionalNumbers(String generatorType, Random random)
+    {
+        for (int i = 0; i < AppConfig.failedCombinationGenerationToleranceCount; i++)
+        {
+            int maxIndexAdditionalNumbers = AppConfig.maxAdditionalNumber - 1;
+            List<Integer> additionalNumbersGeneratedCombination = new ArrayList<>();
+
+            for (int j = 0; j < AppConfig.additionalNumbersCombinationLength; j++)
+            {
+                int randomIndex = 0 + random.nextInt((maxIndexAdditionalNumbers - 0) + 1); //minimum + rand.nextInt((maximum - minimum) + 1);
+
+                int lotteryNumber = GetLotteryNumberByIndex(randomIndex, maxIndexAdditionalNumbers, "AdditionalNumbers", generatorType);
+
+                additionalNumbersGeneratedCombination.add(lotteryNumber);
+                maxIndexAdditionalNumbers--;
+            }
+
+            if (generatorType.equals("RandomGenerator"))
+            {
+                return additionalNumbersGeneratedCombination;
+            }
+            else if (generatorType.equals("AdvancedGenerator"))
+            {
+                if (GeneratorValidator.IsGeneratedCombinationValid(additionalNumbersGeneratedCombination, "AdditionalNumbers"))
+                {
+                    return additionalNumbersGeneratedCombination;
+                }
+            }
+
+            RestoreNumbers(generatorType);
+        }
+
+        return null;
     }
 
     private int GetLotteryNumberByIndex(int randomIndex, int currentMaxIndex, String numberType, String generatorType)
